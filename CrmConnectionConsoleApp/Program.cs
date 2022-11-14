@@ -19,7 +19,7 @@ System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolTyp
 //}
 
 
-string resource = "https://bankfabdemo.crm.dynamics.com";
+string resource = "https://org79a867ff.crm4.dynamics.com/";
 
 // client id and client secret of the application
 ClientCredential clientCrendential = new ClientCredential("c78cad2b-30fd-4d53-8318-edd76bb269ae",
@@ -39,10 +39,12 @@ httpClient.DefaultRequestHeaders.Add("OData-Version", "4.0");
 httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
 
-httpClient.BaseAddress = new Uri("https://orga3420e63.api.crm4.dynamics.com/api/data/v9.2/");
+httpClient.BaseAddress = new Uri("https://org79a867ff.crm4.dynamics.com/api/data/v9.2/");
 
 var response = httpClient.GetAsync("WhoAmI").Result;
 if (response.IsSuccessStatusCode)
 {
     var userDetails = response.Content.ReadAsStringAsync().Result;
 }
+
+Console.Read();
